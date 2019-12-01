@@ -1,4 +1,4 @@
-"use sctict";
+"use sctrict";
 
 const refs = {
   days: document.querySelector('span[data-value="days"]'),
@@ -7,7 +7,7 @@ const refs = {
   secs: document.querySelector('span[data-value="secs"]')
 };
 
-class CountdownTimer {
+class CountDownTimer {
   constructor({ selector, targetDate }) {
     (this.container = document.querySelector(selector)),
       (this.time = targetDate);
@@ -15,15 +15,14 @@ class CountdownTimer {
 
   getTime() {
     const finishTime = this.time;
-
     this.interval = setInterval(() => {
       const startTime = Date.now();
-      const deltaTime = finishTime - startTime;
-      this.updateClockFace(deltaTime);
+      const countTime = finishTime - startTime;
+      this.updateClocKFace(countTime);
     }, 1000);
   }
 
-  updateClockFace(time) {
+  updateClocKFace(time) {
     const days = this.pad(Math.floor(time / (1000 * 60 * 60 * 24)));
     const hours = this.pad(
       Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
@@ -42,9 +41,9 @@ class CountdownTimer {
   }
 }
 
-const newCountdownTimer = new CountdownTimer({
-  selector: "#timer-1",
+const newCountDownTimer = new CountDownTimer({
+  selector: "#tamer-1",
   targetDate: new Date("Jan 01, 2020")
 });
 
-newCountdownTimer.getTime();
+newCountDownTimer.getTime();
